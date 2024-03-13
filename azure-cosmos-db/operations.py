@@ -78,6 +78,27 @@ def update_document(config, params):
         raise ConnectorError(Err)
 
 
+def delete_document(config, params):
+    try:
+        doc_id = params.get('doc_id')
+        partition_key = params.get('partition_key')
+        collection_name = config.get('collection_name')
+        database, container = create_client(config)
+        delete_item = container.delete_item(doc_id, partition_key=partition_key)
+        return delete_item
+
+        # for item in container.query_items(
+        #         query='SELECT * FROM {container} r WHERE r.id="{doc_id}"'.format(container=collection_name,
+        #                                                                          doc_id=doc_id),
+        #         enable_cross_partition_query=True):
+        #     delete_item = container.delete_item(item, partition_key=partition_key)
+        #     return delete_item
+
+    except Exception as Err:
+        logger.error('Exception occurred: {}'.format(Err))
+        raise ConnectorError(Err)
+
+
 def get_collections(config, params):
     try:
         database, container = create_client(config)
@@ -103,6 +124,7 @@ def get_database_properties(config, params):
 operations = {'insert_document': insert_document,
               'query_document': query_document,
               'update_document': update_document,
+              'delete_document': delete_document,
               'get_collections': get_collections,
               'get_database_properties': get_database_properties
               }

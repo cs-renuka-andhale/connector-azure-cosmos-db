@@ -165,6 +165,38 @@
       ]
     },
     {
+      "operation": "delete_document",
+      "title": "Delete Document",
+      "description": "The delete Document operation deletes a document from a collection.",
+      "category": "investigation",
+      "annotation": "delete_document",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Document ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "doc_id",
+          "value": "",
+          "tooltip": "Specify the ID of the document, for example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca.",
+          "description": "Specify the ID of the document which you want to delete from Azure Cosmos DB. For example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca."
+        },
+        {
+          "title": "Partition Key",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "partition_key",
+          "value": "",
+          "description": "Specify the partition key from which you want to delete the document from Azure Cosmos DB."
+        }
+      ]
+    },
+    {
       "operation": "get_collections",
       "title": "Get Collections",
       "description": "Get the collections under the database from Azure Cosmos DB.",

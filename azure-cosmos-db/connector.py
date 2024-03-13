@@ -16,7 +16,7 @@ class AzureCosmosDB(Connector):
     def execute(self, config, operation, params, **kwargs):
         try:
             operation = operations.get(operation)
-            return operation(config, params, **kwargs)
+            return operation(config, params)
         except Exception as Err:
             logger.error('Exception occurred: {}'.format(Err))
             raise ConnectorError(Err)
