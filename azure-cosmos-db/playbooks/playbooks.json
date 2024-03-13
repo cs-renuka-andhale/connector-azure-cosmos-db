@@ -1,0 +1,533 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - Azure Cosmos DB - 1.0.0",
+      "description": "Sample playbooks for \"Azure Cosmos DB\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": null,
+      "uuid": "f8a734f9-bbb5-4b91-a59e-0dbc4ceb8643",
+      "id": 240,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [
+        "Azure",
+        "azure-cosmos-db"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Delete Document",
+          "aliasName": null,
+          "tag": "#Azure Cosmos DB",
+          "description": "The delete Document operation deletes a document from a collection.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1710328055,
+          "collection": "/api/3/workflow_collections/f8a734f9-bbb5-4b91-a59e-0dbc4ceb8643",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/90aab39d-3b82-41be-8b1c-6ffd0b85a03a",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Delete Document",
+              "description": null,
+              "arguments": {
+                "name": "Azure Cosmos DB",
+                "config": "8d3b364f-486d-4643-ae4a-141bb1fe9900",
+                "params": {
+                  "doc_id": "2560c4b9-c37b-4aea-95f6-7ef24965f9ca",
+                  "partition_key": "/partition1"
+                },
+                "version": "1.0.0",
+                "connector": "azure-cosmos-db",
+                "operation": "delete_document",
+                "operationTitle": "Delete Document",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "1003e036-8d47-4c6f-9edf-8d4d791bd7df"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "90aab39d-3b82-41be-8b1c-6ffd0b85a03a"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Delete Document",
+              "targetStep": "/api/3/workflow_steps/1003e036-8d47-4c6f-9edf-8d4d791bd7df",
+              "sourceStep": "/api/3/workflow_steps/90aab39d-3b82-41be-8b1c-6ffd0b85a03a",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "c57d1d1e-147d-47f3-9a16-9c4274e6ef49"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "47d9ad24-0df6-4b62-b14e-364dd7db65c8",
+          "id": 2755,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Azure",
+            "azure-cosmos-db"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Insert Document",
+          "aliasName": null,
+          "tag": "#Azure Cosmos DB",
+          "description": "The Create Document operation creates a new document in a collection.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1710328129,
+          "collection": "/api/3/workflow_collections/f8a734f9-bbb5-4b91-a59e-0dbc4ceb8643",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a7311e12-7b6d-4937-acbd-3e8423114e2e",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Insert Document",
+              "description": null,
+              "arguments": {
+                "name": "Azure Cosmos DB",
+                "config": "8d3b364f-486d-4643-ae4a-141bb1fe9900",
+                "params": {
+                  "document_details": "{\n  \"id\":\"id100\",\"name\":\"Username11\", \"age\":20\n  \n}"
+                },
+                "version": "1.0.0",
+                "connector": "azure-cosmos-db",
+                "operation": "insert_document",
+                "operationTitle": "Insert Document",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "120",
+              "left": "180",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "aecd557f-ed21-4d31-8545-4ae8afe4c246"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "a7311e12-7b6d-4937-acbd-3e8423114e2e"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Insert Document",
+              "targetStep": "/api/3/workflow_steps/aecd557f-ed21-4d31-8545-4ae8afe4c246",
+              "sourceStep": "/api/3/workflow_steps/a7311e12-7b6d-4937-acbd-3e8423114e2e",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "18d29e27-6f07-47d9-bbd6-b967674332cd"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "5ec0e087-b829-4c4f-a3f9-f20c6969eed3",
+          "id": 2752,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Azure",
+            "azure-cosmos-db"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Document",
+          "aliasName": null,
+          "tag": "#Azure Cosmos DB",
+          "description": "Update the document under the collection in Azure Cosmos DB.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1710328015,
+          "collection": "/api/3/workflow_collections/f8a734f9-bbb5-4b91-a59e-0dbc4ceb8643",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/096bf52b-9d49-44e1-8c1d-96a234c10e46",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "096bf52b-9d49-44e1-8c1d-96a234c10e46"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Document",
+              "description": null,
+              "arguments": {
+                "name": "Azure Cosmos DB",
+                "config": "8d3b364f-486d-4643-ae4a-141bb1fe9900",
+                "params": {
+                  "doc_id": "2560c4b9-c37b-4aea-95f6-7ef24965f9ca",
+                  "document_details": "{\n  \"name\": \"Updating Name\"\n}"
+                },
+                "version": "1.0.0",
+                "connector": "azure-cosmos-db",
+                "operation": "update_document",
+                "operationTitle": "Update Document",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "1ea937d0-5245-4e45-a145-75d8266a3957"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Update Document",
+              "targetStep": "/api/3/workflow_steps/1ea937d0-5245-4e45-a145-75d8266a3957",
+              "sourceStep": "/api/3/workflow_steps/096bf52b-9d49-44e1-8c1d-96a234c10e46",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "cd13b0f1-fc6e-438a-8cb5-ae4078d924d1"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "79c47ed8-1300-4176-a3a0-3b6e13180dcc",
+          "id": 2754,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Azure",
+            "azure-cosmos-db"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Query Document",
+          "aliasName": null,
+          "tag": "#Azure Cosmos DB",
+          "description": "Retrieves the document under the collection from Azure Cosmos DB.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1710327779,
+          "collection": "/api/3/workflow_collections/f8a734f9-bbb5-4b91-a59e-0dbc4ceb8643",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/bc7a684a-0d8b-484c-9521-a1ffcb09cde8",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Query Document",
+              "description": null,
+              "arguments": {
+                "name": "Azure Cosmos DB",
+                "config": "8d3b364f-486d-4643-ae4a-141bb1fe9900",
+                "params": {
+                  "doc_id": "2560c4b9-c37b-4aea-95f6-7ef24965f9ca"
+                },
+                "version": "1.0.0",
+                "connector": "azure-cosmos-db",
+                "operation": "query_document",
+                "operationTitle": "Query Document",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "d76d27bf-5c04-420c-8e75-80b3ec443312"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "bc7a684a-0d8b-484c-9521-a1ffcb09cde8"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Query Document",
+              "targetStep": "/api/3/workflow_steps/d76d27bf-5c04-420c-8e75-80b3ec443312",
+              "sourceStep": "/api/3/workflow_steps/bc7a684a-0d8b-484c-9521-a1ffcb09cde8",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "b98d7613-d74e-45f7-b530-fccbc5037191"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "d7745724-d52c-40b9-a706-ffabc4ad228c",
+          "id": 2753,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Azure",
+            "azure-cosmos-db"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Collections",
+          "aliasName": null,
+          "tag": "#Azure Cosmos DB",
+          "description": "Get the collections under the database from Azure Cosmos DB.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/f8a734f9-bbb5-4b91-a59e-0dbc4ceb8643",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/e4ecbeeb-a7b0-416e-a79e-adfa50072a55",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Collections",
+              "description": null,
+              "arguments": {
+                "name": "Azure Cosmos DB",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "azure-cosmos-db",
+                "operation": "get_collections",
+                "operationTitle": "Get Collections"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "416b2cd9-c794-40e0-bdfd-18f35f0f799b"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "e4ecbeeb-a7b0-416e-a79e-adfa50072a55"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Collections",
+              "targetStep": "/api/3/workflow_steps/416b2cd9-c794-40e0-bdfd-18f35f0f799b",
+              "sourceStep": "/api/3/workflow_steps/e4ecbeeb-a7b0-416e-a79e-adfa50072a55",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "d568e34a-94ba-4e4b-9da8-b47ef46055dc"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "e4e691fd-bb30-484e-8003-9e3c8916e0b9",
+          "id": 2756,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Azure",
+            "azure-cosmos-db"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Database Properties",
+          "aliasName": null,
+          "tag": "#Azure Cosmos DB",
+          "description": "Get and display the properties of database from Azure Cosmos DB.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1710326843,
+          "collection": "/api/3/workflow_collections/f8a734f9-bbb5-4b91-a59e-0dbc4ceb8643",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/7e839415-91f8-42d0-a131-edb062c073f2",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Database Properties",
+              "description": null,
+              "arguments": {
+                "name": "Azure Cosmos DB",
+                "config": "8d3b364f-486d-4643-ae4a-141bb1fe9900",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "azure-cosmos-db",
+                "operation": "get_database_properties",
+                "operationTitle": "Get Database Properties",
+                "step_variables": []
+              },
+              "status": null,
+              "top": "120",
+              "left": "180",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "9b912035-e85f-4538-aa7e-4efc8f53bf70"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "7e839415-91f8-42d0-a131-edb062c073f2"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Database Properties",
+              "targetStep": "/api/3/workflow_steps/9b912035-e85f-4538-aa7e-4efc8f53bf70",
+              "sourceStep": "/api/3/workflow_steps/7e839415-91f8-42d0-a131-edb062c073f2",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "04db4317-3fd7-4e71-aca9-753cc99a3cce"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "f21e8abf-5484-4a57-af57-b96ef4962ead",
+          "id": 2757,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "Azure",
+            "azure-cosmos-db"
+          ]
+        }
+      ]
+    }
+  ],
+  "exported_tags": [
+    "Azure",
+    "azure-cosmos-db"
+  ]
+}

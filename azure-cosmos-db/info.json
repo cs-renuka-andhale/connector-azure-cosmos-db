@@ -1,0 +1,271 @@
+{
+  "name": "azure-cosmos-db",
+  "label": "Azure Cosmos DB",
+  "description": "Azure Cosmos DB is a globally distributed, multi-model database service offered by Microsoft. It is designed to provide high availability, scalability, and low-latency access to data for modern applications.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "version": "1.0.0",
+  "category": "Database",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "server_url",
+        "description": "URL of the Azure Cosmos DB server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Master Key",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "api_key",
+        "description": "The master key for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Database Name",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "database_name",
+        "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Collection Name",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "collection_name",
+        "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Verify SSL",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "insert_document",
+      "title": "Insert Document",
+      "description": "The Create Document operation creates a new document in a collection.",
+      "category": "investigation",
+      "annotation": "insert_document",
+      "output_schema": {
+        "id": "",
+        "name": "",
+        "age": "",
+        "_rid": "",
+        "_self": "",
+        "_etag": "",
+        "_attachments": "",
+        "_ts": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Document Details",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "name": "document_details",
+          "value": "",
+          "tooltip": "For example: {\"id\":\"id1\",\"name\":\"Jay1\", \"age\":20}.",
+          "description": "Specify the document details which you want to add in Azure Cosmos DB. For example: {\"id\":\"id1\",\"name\":\"Jay1\", \"age\":20}."
+        }
+      ]
+    },
+    {
+      "operation": "query_document",
+      "title": "Query Document",
+      "description": "Retrieves the document under the collection from Azure Cosmos DB.",
+      "category": "investigation",
+      "annotation": "query_document",
+      "output_schema": {
+        "new1": "",
+        "id": "",
+        "_rid": "",
+        "_self": "",
+        "_etag": "",
+        "_attachments": "",
+        "_ts": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Document ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "doc_id",
+          "value": "",
+          "tooltip": "Specify the ID of the document, for example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca.",
+          "description": "Specify the ID of the document whose information you want to get from Azure Cosmos DB. For example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca."
+        }
+      ]
+    },
+    {
+      "operation": "update_document",
+      "title": "Update Document",
+      "description": "Update the document under the collection in Azure Cosmos DB.",
+      "category": "investigation",
+      "annotation": "update_document",
+      "output_schema": {
+        "id": "",
+        "name": "",
+        "age": "",
+        "_rid": "",
+        "_self": "",
+        "_etag": "",
+        "_attachments": "",
+        "_ts": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Document ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "doc_id",
+          "value": "",
+          "tooltip": "Specify the ID of the document, for example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca.",
+          "description": "Specify the ID of the document whose information you want to update in Azure Cosmos DB. For example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca."
+        },
+        {
+          "title": "Document Details",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "name": "document_details",
+          "value": "",
+          "tooltip": "For example: {\"name\":\"Jay2\", \"age\":22}.",
+          "description": "Specify the document details which you want to update in Azure Cosmos DB. For example: {\"name\":\"Jay2\", \"age\":22}."
+        }
+      ]
+    },
+    {
+      "operation": "delete_document",
+      "title": "Delete Document",
+      "description": "The delete Document operation deletes a document from a collection.",
+      "category": "investigation",
+      "annotation": "delete_document",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Document ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "doc_id",
+          "value": "",
+          "tooltip": "Specify the ID of the document, for example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca.",
+          "description": "Specify the ID of the document which you want to delete from Azure Cosmos DB. For example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca."
+        },
+        {
+          "title": "Partition Key",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "partition_key",
+          "value": "",
+          "description": "Specify the partition key from which you want to delete the document from Azure Cosmos DB."
+        }
+      ]
+    },
+    {
+      "operation": "get_collections",
+      "title": "Get Collections",
+      "description": "Get the collections under the database from Azure Cosmos DB.",
+      "category": "investigation",
+      "annotation": "get_collections",
+      "output_schema": {
+        "id": "",
+        "indexingPolicy": {
+          "indexingMode": "",
+          "automatic": "",
+          "includedPaths": [
+            {
+              "path": ""
+            }
+          ],
+          "excludedPaths": [
+            {
+              "path": ""
+            }
+          ]
+        },
+        "partitionKey": {
+          "paths": [
+            ""
+          ],
+          "kind": ""
+        },
+        "uniqueKeyPolicy": {
+          "uniqueKeys": []
+        },
+        "conflictResolutionPolicy": {
+          "mode": "",
+          "conflictResolutionPath": "",
+          "conflictResolutionProcedure": ""
+        },
+        "geospatialConfig": {
+          "type": ""
+        },
+        "_rid": "",
+        "_ts": "",
+        "_self": "",
+        "_etag": "",
+        "_docs": "",
+        "_sprocs": "",
+        "_triggers": "",
+        "_udfs": "",
+        "_conflicts": "",
+        "computedProperties": []
+      },
+      "enabled": true,
+      "parameters": []
+    },
+    {
+      "operation": "get_database_properties",
+      "title": "Get Database Properties",
+      "description": "Get and display the properties of database from Azure Cosmos DB.",
+      "category": "investigation",
+      "annotation": "get_database_properties",
+      "output_schema": {
+        "id": "",
+        "_rid": "",
+        "_self": "",
+        "_etag": "",
+        "_colls": "",
+        "_users": "",
+        "_ts": ""
+      },
+      "enabled": true,
+      "parameters": []
+    }
+  ]
+}
