@@ -14,21 +14,21 @@ from connectors.core.connector import Connector
 logger = get_logger('azure-cosmos-db')
 
 
-def create_client(config):
+def create_client(config, params):
     server_url = config.get('server_url')
     api_key = config.get('api_key')
-    database_name = config.get('database_name')
-    collection_name = config.get('collection_name')
+    database_name = config.get('database_name') 
+    if params.get('database_name'):
+        database_name = params.get('database_name')
 
     client = CosmosClient("{url}".format(url=server_url), credential="{api_key}".format(api_key=api_key))
     database = client.get_database_client(database_name)
-    container = database.get_container_client(collection_name)
-    return database, container
+    return database
 
 
 def check_health(config):
     try:
-        if get_collections(config, params={}):
+        if get_database_properties(config, params={}):
             return True
         else:
             logger.exception('Error occured while connecting server')
@@ -41,7 +41,8 @@ def check_health(config):
 def insert_document(config, params):
     try:
         document_details = params.get('document_details')
-        database, container = create_client(config)
+        database = create_client(config, params)
+        container = database.get_container_client(params.get('collection_name'))
         create_item = container.upsert_item(document_details)
         return create_item
     except Exception as Err:
@@ -52,8 +53,9 @@ def insert_document(config, params):
 def query_document(config, params):
     try:
         doc_id = params.get('doc_id')
-        collection_name = config.get('collection_name')
-        database, container = create_client(config)
+        collection_name = params.get('collection_name')
+        database = create_client(config, params)
+        container = database.get_container_client(params.get('collection_name'))
         query = "SELECT * FROM {container} r WHERE r.id='{doc_id}'".format(container=collection_name, doc_id=doc_id)
         for item in container.query_items(
                 query='SELECT * FROM {container} r WHERE r.id="{doc_id}"'.format(container=collection_name,
@@ -69,7 +71,8 @@ def update_document(config, params):
     try:
         doc_id = params.get('doc_id')
         document_details = params.get('document_details')
-        database, container = create_client(config)
+        database = create_client(config, params)
+        container = database.get_container_client(params.get('collection_name'))
         document_details.update({"id": doc_id})
         update_item = container.upsert_item(document_details)
         return update_item
@@ -82,8 +85,8 @@ def delete_document(config, params):
     try:
         doc_id = params.get('doc_id')
         partition_key = params.get('partition_key')
-        collection_name = config.get('collection_name')
-        database, container = create_client(config)
+        database = create_client(config, params)
+        container = database.get_container_client(params.get('collection_name'))
         delete_item = container.delete_item(doc_id, partition_key=partition_key)
         return delete_item
 
@@ -101,7 +104,7 @@ def delete_document(config, params):
 
 def get_collections(config, params):
     try:
-        database, container = create_client(config)
+        database = create_client(config, params)
         collections_list = []
         for item in database.list_containers():
             collections_list.append(item)
@@ -113,7 +116,7 @@ def get_collections(config, params):
 
 def get_database_properties(config, params):
     try:
-        database, container = create_client(config)
+        database = create_client(config, params)
         properties = database.read()
         return properties
     except Exception as Err:
