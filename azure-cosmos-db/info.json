@@ -40,15 +40,6 @@
         "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
       },
       {
-        "title": "Collection Name",
-        "required": true,
-        "editable": true,
-        "visible": true,
-        "type": "text",
-        "name": "collection_name",
-        "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
-      },
-      {
         "title": "Verify SSL",
         "required": false,
         "editable": true,
@@ -89,6 +80,24 @@
           "value": "",
           "tooltip": "For example: {\"id\":\"id1\",\"name\":\"Jay1\", \"age\":20}.",
           "description": "Specify the document details which you want to add in Azure Cosmos DB. For example: {\"id\":\"id1\",\"name\":\"Jay1\", \"age\":20}."
+        },
+        {
+          "title": "Collection Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "collection_name",
+          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+        },
+        {
+          "title": "Database Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "database_name",
+          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         }
       ]
     },
@@ -119,6 +128,24 @@
           "value": "",
           "tooltip": "Specify the ID of the document, for example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca.",
           "description": "Specify the ID of the document whose information you want to get from Azure Cosmos DB. For example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca."
+        },
+        {
+          "title": "Collection Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "collection_name",
+          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+        },
+        {
+          "title": "Database Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "database_name",
+          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         }
       ]
     },
@@ -161,6 +188,24 @@
           "value": "",
           "tooltip": "For example: {\"name\":\"Jay2\", \"age\":22}.",
           "description": "Specify the document details which you want to update in Azure Cosmos DB. For example: {\"name\":\"Jay2\", \"age\":22}."
+        },
+        {
+          "title": "Collection Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "collection_name",
+          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+        },
+        {
+          "title": "Database Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "database_name",
+          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         }
       ]
     },
@@ -193,6 +238,24 @@
           "name": "partition_key",
           "value": "",
           "description": "Specify the partition key from which you want to delete the document from Azure Cosmos DB."
+        },
+        {
+          "title": "Collection Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "collection_name",
+          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+        },
+        {
+          "title": "Database Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "database_name",
+          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         }
       ]
     },
@@ -247,7 +310,17 @@
         "computedProperties": []
       },
       "enabled": true,
-      "parameters": []
+      "parameters": [
+        {
+          "title": "Database Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "database_name",
+          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+        }
+      ]
     },
     {
       "operation": "get_database_properties",
@@ -265,7 +338,17 @@
         "_ts": ""
       },
       "enabled": true,
-      "parameters": []
+      "parameters": [
+        {
+          "title": "Database Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "database_name",
+          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+        }
+      ]
     }
   ]
 }
