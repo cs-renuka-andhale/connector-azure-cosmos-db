@@ -37,7 +37,7 @@
         "visible": true,
         "type": "text",
         "name": "database_name",
-        "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+        "description": "The database name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
       },
       {
         "title": "Verify SSL",
@@ -82,13 +82,13 @@
           "description": "Specify the document details which you want to add in Azure Cosmos DB. For example: {\"id\":\"id1\",\"name\":\"Jay1\", \"age\":20}."
         },
         {
-          "title": "Collection Name",
+          "title": "Container Name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "collection_name",
-          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+          "description": "The container name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         },
         {
           "title": "Database Name",
@@ -97,14 +97,15 @@
           "visible": true,
           "type": "text",
           "name": "database_name",
-          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+          "tooltip": "If database name left here blank, the value provided at the time of configuration will be used.",
+          "description": "The database name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         }
       ]
     },
     {
       "operation": "query_document",
       "title": "Query Document",
-      "description": "Retrieves the document under the collection from Azure Cosmos DB.",
+      "description": "Retrieves the document under the container from Azure Cosmos DB.",
       "category": "investigation",
       "annotation": "query_document",
       "output_schema": {
@@ -119,24 +120,24 @@
       "enabled": true,
       "parameters": [
         {
-          "title": "Document ID",
+          "title": "Azure Cosmos Query",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "name": "doc_id",
+          "name": "query",
           "value": "",
-          "tooltip": "Specify the ID of the document, for example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca.",
-          "description": "Specify the ID of the document whose information you want to get from Azure Cosmos DB. For example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca."
+          "tooltip": "Specify the query to get the document, for example: SELECT * FROM ContainerName.",
+          "description": "Specify the query to get the document information from Azure Cosmos DB. For example: SELECT * FROM ContainerName."
         },
         {
-          "title": "Collection Name",
+          "title": "Container Name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "collection_name",
-          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+          "description": "The container name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         },
         {
           "title": "Database Name",
@@ -145,14 +146,15 @@
           "visible": true,
           "type": "text",
           "name": "database_name",
-          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+          "tooltip": "If database name left here blank, the value provided at the time of configuration will be used.",
+          "description": "The database name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         }
       ]
     },
     {
       "operation": "update_document",
       "title": "Update Document",
-      "description": "Update the document under the collection in Azure Cosmos DB.",
+      "description": "Update the document under the container in Azure Cosmos DB.",
       "category": "investigation",
       "annotation": "update_document",
       "output_schema": {
@@ -190,13 +192,13 @@
           "description": "Specify the document details which you want to update in Azure Cosmos DB. For example: {\"name\":\"Jay2\", \"age\":22}."
         },
         {
-          "title": "Collection Name",
+          "title": "Container Name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "collection_name",
-          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+          "description": "The container name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         },
         {
           "title": "Database Name",
@@ -205,14 +207,15 @@
           "visible": true,
           "type": "text",
           "name": "database_name",
-          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+          "tooltip": "If database name left here blank, the value provided at the time of configuration will be used.",
+          "description": "The database name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         }
       ]
     },
     {
       "operation": "delete_document",
       "title": "Delete Document",
-      "description": "The delete Document operation deletes a document from a collection.",
+      "description": "The delete Document operation deletes a document from a container.",
       "category": "investigation",
       "annotation": "delete_document",
       "output_schema": {},
@@ -230,23 +233,23 @@
           "description": "Specify the ID of the document which you want to delete from Azure Cosmos DB. For example: 2560c4b9-c37b-4aea-95f6-7ef24965f9ca."
         },
         {
-          "title": "Partition Key",
+          "title": "Partition Value",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "partition_key",
           "value": "",
-          "description": "Specify the partition key from which you want to delete the document from Azure Cosmos DB."
+          "description": "Specify the partition value from which you want to delete the document from Azure Cosmos DB."
         },
         {
-          "title": "Collection Name",
+          "title": "Container Name",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "collection_name",
-          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+          "description": "The container name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         },
         {
           "title": "Database Name",
@@ -255,14 +258,15 @@
           "visible": true,
           "type": "text",
           "name": "database_name",
-          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+          "tooltip": "If database name left here blank, the value provided at the time of configuration will be used.",
+          "description": "The database name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         }
       ]
     },
     {
       "operation": "get_collections",
-      "title": "Get Collections",
-      "description": "Get the collections under the database from Azure Cosmos DB.",
+      "title": "Get Containers",
+      "description": "Get the containers under the database from Azure Cosmos DB.",
       "category": "investigation",
       "annotation": "get_collections",
       "output_schema": {
@@ -318,7 +322,8 @@
           "visible": true,
           "type": "text",
           "name": "database_name",
-          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+          "tooltip": "If database name left here blank, the value provided at the time of configuration will be used.",
+          "description": "The database name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         }
       ]
     },
@@ -346,7 +351,8 @@
           "visible": true,
           "type": "text",
           "name": "database_name",
-          "description": "The customer name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
+          "tooltip": "If database name left here blank, the value provided at the time of configuration will be used.",
+          "description": "The database name for the Azure Cosmos DB server to which you will connect and perform the automated operations."
         }
       ]
     }
