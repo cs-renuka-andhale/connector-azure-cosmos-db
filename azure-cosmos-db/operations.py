@@ -16,6 +16,8 @@ logger = get_logger('azure-cosmos-db')
 
 def create_client(config, params):
     server_url = config.get('server_url')
+    if not (server_url.startswith('https://') or server_url.startswith('http://')):
+        server_url = 'https://' + server_url
     api_key = config.get('api_key')
     database_name = config.get('database_name') 
     if params.get('database_name'):
@@ -54,14 +56,13 @@ def query_document(config, params):
     try:
         doc_id = params.get('doc_id')
         collection_name = params.get('collection_name')
+        query = params.get('query')
+        item_list = []
         database = create_client(config, params)
         container = database.get_container_client(params.get('collection_name'))
-        query = "SELECT * FROM {container} r WHERE r.id='{doc_id}'".format(container=collection_name, doc_id=doc_id)
-        for item in container.query_items(
-                query='SELECT * FROM {container} r WHERE r.id="{doc_id}"'.format(container=collection_name,
-                                                                                  doc_id=doc_id),
-                enable_cross_partition_query=True):
-            return item
+        for item in container.query_items(query, enable_cross_partition_query=True):
+            item_list.append(item) 
+        return item_list
     except Exception as Err:
         logger.error('Exception occurred: {}'.format(Err))
         raise ConnectorError(Err)
@@ -120,8 +121,11 @@ def get_database_properties(config, params):
         properties = database.read()
         return properties
     except Exception as Err:
-        logger.error('Exception occurred: {}'.format(Err))
-        raise ConnectorError(Err)
+        if 'Resource Not Found' in str(Err):
+            raise ConnectorError("Resource Not Found")
+        else:
+            logger.error('Exception occurred: {}'.format(Err))
+            raise ConnectorError(Err)
 
 
 operations = {'insert_document': insert_document,
