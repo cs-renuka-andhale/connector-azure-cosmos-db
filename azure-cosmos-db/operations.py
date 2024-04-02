@@ -89,6 +89,8 @@ def delete_document(config, params):
         database = create_client(config, params)
         container = database.get_container_client(params.get('collection_name'))
         delete_item = container.delete_item(doc_id, partition_key=partition_key)
+        if delete_item == None:
+            return "Document: {doc_id} deleted successfully".format(doc_id=doc_id)
         return delete_item
 
         # for item in container.query_items(

@@ -127,8 +127,8 @@
           "type": "text",
           "name": "query",
           "value": "",
-          "tooltip": "Specify the query to get the document, for example: SELECT * FROM ContainerName.",
-          "description": "Specify the query to get the document information from Azure Cosmos DB. For example: SELECT * FROM ContainerName."
+          "tooltip": "Specify the query to get the document, for example: SELECT * FROM ContainerName, SELECT * from Employees e where e.full_name = \"John Doe\".",
+          "description": "Specify the query to get the document information from Azure Cosmos DB. For example: SELECT * FROM ContainerName, SELECT * from Employees e where e.full_name = \"John Doe\"."
         },
         {
           "title": "Container Name",
